@@ -3,7 +3,7 @@
 ## Introduction
 
 ## Development Environment
-+ mongodb
++ mySQL
 + java
 + Intellij
 + Spring boot

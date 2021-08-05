@@ -11,19 +11,19 @@ import javax.validation.constraints.NotNull;
 @Getter
 public class Meta {
     @Id
-    @Column(name = "id", length = 60)
+    @Column(name = "ID", length = 100)
     @GeneratedValue(generator = "uuid2")
     @GenericGenerator(name = "uudi2", strategy = "uuid2")
     private String id;
 
-    @Column(name = "name", length = 65000)
+    @Column(name = "NAME", length = 1000)
     @NotNull
     private String name;
 
-    @Column(name = "description", length = 65000)
+    @Column(name = "DESCRIPTION", length = 1000)
     private String description;
 
-    @JoinColumn(name = "parent_id")
+    @JoinColumn(name = "PARENT_ID")
     @ManyToOne(fetch = FetchType.LAZY)
     private Meta parent;
 }

@@ -4,6 +4,7 @@ import lombok.Getter;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
+import java.time.LocalDateTime;
 
 @Entity
 @Table(name = "employee_his_tb")
@@ -12,24 +13,25 @@ public class EmployeeHis {
     @EmbeddedId
     private EmployeeHisId id;
 
-    @Column(name = "name", length = 65000)
-    @NotNull
+    @Column(name = "name", length = 1000)
     private String name;
 
-    @JoinColumn(name = "hospital_id")
-    @ManyToOne(fetch = FetchType.LAZY)
-    private Hospital hospital;
+    @Column(name = "HOSPITAL_ID", length = 100)
+    private String hospital;
 
-    @JoinColumn(name = "type_cd")
-    @ManyToOne(fetch = FetchType.LAZY)
-    private Code type;
+    @Column(name = "TYPE_CD", length = 100)
+    @NotNull
+    private String type;
 
-    @Column(name = "password", length = 65000)
+    @Column(name = "PASSWORD", length = 1000)
     private String password;
 
-    @Column(name = "phone", length = 65000)
+    @Column(name = "PHONE", length = 1000)
     private String phone;
 
-    @Column(name = "email", length = 65000)
+    @Column(name = "EMAIL", length = 1000)
     private String email;
+
+    @Column(name = "MODIFY_TS")
+    private LocalDateTime modify;
 }

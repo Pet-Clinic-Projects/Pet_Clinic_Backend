@@ -6,18 +6,20 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.validation.constraints.NotNull;
 
 @Entity
 @Table(name = "code_group_tb")
 @Getter
 public class CodeGroup {
     @Id
-    @Column(name = "id", length = 60)
+    @Column(name = "ID", length = 100)
     private String id;
 
-    @Column(name = "group_name", length = 65000)
+    @Column(name = "GROUP_NAME", length = 1000)
+    @NotNull
     private String name;
 
-    @Column(name = "description", length = 65000)
+    @Column(name = "DESCRIPTION", length = 1000)
     private String description;
 }

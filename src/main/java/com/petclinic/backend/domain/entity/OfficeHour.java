@@ -17,11 +17,11 @@ public class OfficeHour {
     @EmbeddedId
     private OfficeHourId id;
 
-    @Column(name = "open_hour")
+    @Column(name = "OPEN_HOUR")
     @NotNull
     private LocalDateTime open;
 
-    @Column(name = "close_hour")
+    @Column(name = "CLOSE_HOUR")
     @NotNull
     private LocalDateTime close;
 }

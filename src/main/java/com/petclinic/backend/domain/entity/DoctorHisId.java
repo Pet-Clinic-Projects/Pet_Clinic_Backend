@@ -1,14 +1,16 @@
 package com.petclinic.backend.domain.entity;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 import java.io.Serializable;
 
 @Embeddable
 public class DoctorHisId implements Serializable {
-    @Column(name = "version")
+    @Column(name = "VERSION")
+    @NotNull
     private Long version;
 
-    @JoinColumn(name = "id")
-    @ManyToOne(fetch = FetchType.LAZY)
-    private Doctor doctor;
+    @Column(name = "ID", length = 100)
+    @NotNull
+    private String id;
 }

@@ -13,24 +13,24 @@ public class DoctorHis {
     @EmbeddedId
     private DoctorHisId id;
 
-    @JoinColumn(name = "hospital_id")
-    @ManyToOne(fetch = FetchType.LAZY)
-    private Hospital hospital;
+    @Column(name = "HOSPITAL_ID")
+    private String hospital;
 
-    @Column(name = "name", length = 65000)
-    @NotNull
+    @Column(name = "NAME", length = 1000)
     private String name;
 
-    @Column(name = "password", length = 65000)
+    @Column(name = "PASSWORD", length = 1000)
     private String password;
 
-    @Column(name = "modify_ts")
-    private LocalDateTime modify;
-
-    @Column(name = "phone", length = 65000)
+    @Column(name = "PHONE", length = 1000)
     private String phone;
 
-    @Column(name = "email", length = 65000)
+    @Column(name = "EMAIL", length = 1000)
     private String email;
 
+    @Column(name = "MODIFY_TS")
+    private LocalDateTime modify;
+
+    @Column(name = "POSITION", length = 1000)
+    private String position;
 }

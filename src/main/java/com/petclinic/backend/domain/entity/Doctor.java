@@ -1,6 +1,7 @@
 package com.petclinic.backend.domain.entity;
 
 import lombok.Getter;
+import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
@@ -11,36 +12,45 @@ import java.time.LocalDateTime;
 @Getter
 public class Doctor {
     @Id
-    @Column(name = "id")
+    @Column(name = "ID", length = 100)
+    @GeneratedValue(generator = "uuid2")
+    @GenericGenerator(name = "uuid2", strategy = "uuid2")
     private String id;
 
-    @JoinColumn(name = "hospital_id")
-    @ManyToOne(fetch = FetchType.LAZY)
-    private Hospital hospital;
-
-    @Column(name = "name", length = 65000)
+    @Column(name = "NAME", length = 1000)
     @NotNull
     private String name;
 
-    @Column(name = "web_id", length = 65000)
+    @JoinColumn(name = "HOSPITAL_ID")
+    @ManyToOne(fetch = FetchType.LAZY)
+    private Hospital hospital;
+
+    @Column(name = "WEB_ID", length = 1000)
     private String web;
 
-    @Column(name = "password", length = 65000)
+    @Column(name = "PASSWORD", length = 1000)
     private String password;
 
-    @Column(name = "license", length = 65000)
+    @Column(name = "PHONE", length = 1000)
+    private String phone;
+
+    @Column(name = "EMAIL", length = 1000)
+    private String email;
+
+    @Column(name = "LICENSE", length = 1000)
     @Lob
     private String license;
 
-    @Column(name = "start_ts")
+    @Column(name = "INFO", length = 1000)
+    private String info;
+
+    @Column(name = "POSITION", length = 1000)
+    private String position;
+
+    @Column(name = "START_TS")
     private LocalDateTime start;
 
-    @Column(name = "end_ts")
+    @Column(name = "END_TS")
     private LocalDateTime end;
 
-    @Column(name = "phone", length = 65000)
-    private String phone;
-
-    @Column(name = "email", length = 65000)
-    private String email;
 }

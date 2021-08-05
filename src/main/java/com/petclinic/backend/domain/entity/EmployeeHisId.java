@@ -8,14 +8,13 @@ import java.io.Serializable;
 @Embeddable
 @Getter
 public class EmployeeHisId implements Serializable {
-    @Column(name = "version")
+    @Column(name = "VERSION")
     private Long version;
 
-    @JoinColumn(name = "id")
-    @ManyToOne(fetch = FetchType.LAZY)
-    private Employee employee;
+    @Column(name = "ID", length = 100)
+    private String employee;
 
-    public EmployeeHisId(Long version, Employee employee) {
+    public EmployeeHisId(Long version, String employee) {
         this.version = version;
         this.employee = employee;
     }

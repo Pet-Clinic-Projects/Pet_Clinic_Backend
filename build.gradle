@@ -1,5 +1,5 @@
 buildscript {
-	dependencies {spring boot mysql gradle jpa
+	dependencies {
 		classpath("gradle.plugin.com.ewerk.gradle.plugins:querydsl-plugin:1.0.10")
 	}
 }
@@ -32,7 +32,7 @@ dependencies {
 	implementation 'com.fasterxml.jackson.datatype:jackson-datatype-hibernate5'
 	implementation 'org.springframework.boot:spring-boot-starter-validation'
 
-	compileOnly 'mysql:mysql-connector-java'
+	runtimeOnly 'mysql:mysql-connector-java'
 
 	compileOnly 'org.projectlombok:lombok'
 	annotationProcessor 'org.projectlombok:lombok'

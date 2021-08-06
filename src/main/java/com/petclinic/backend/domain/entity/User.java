@@ -2,6 +2,7 @@ package com.petclinic.backend.domain.entity;
 
 
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 import org.hibernate.annotations.GenericGenerator;
 
@@ -11,6 +12,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Entity
+@NoArgsConstructor
 @Table(name="USER_TB")
 @Getter @Setter
 public class User {
@@ -41,5 +43,5 @@ public class User {
     private LocalDateTime END_TS;
 
     @OneToMany (mappedBy = "user" ,cascade = CascadeType.ALL)
-    private List<UserGroupRel> usergrouprel= new ArrayList<>();
+    private List<UserPetRel> userPetRels= new ArrayList<>();
 }

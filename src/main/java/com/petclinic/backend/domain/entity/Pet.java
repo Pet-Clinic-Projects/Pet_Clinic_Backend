@@ -1,5 +1,6 @@
 package com.petclinic.backend.domain.entity;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 import org.hibernate.annotations.GenericGenerator;
 
@@ -7,6 +8,7 @@ import javax.persistence.Entity;
 import javax.persistence.*;
 
 @Entity
+@NoArgsConstructor
 @Table(name="PET_TB")
 @Getter @Setter
 public class Pet {
@@ -21,8 +23,6 @@ public class Pet {
 
     private String SPECIES_CD;  //join 해야하나?
 
-    private String SPECIES_NAME;
-
     private String STATE_CD;
 
     private String WEIGHT;
@@ -33,7 +33,6 @@ public class Pet {
 
     private String AGE;
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "USERGROUP_ID")
-    private UserGroup usergroup;
+    @OneToMany(mappedBy = "pet",cascade = CascadeType.ALL)
+    private UserPetRel userPetRel;
 }

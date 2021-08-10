@@ -1,43 +1,45 @@
 package com.petclinic.backend.domain.entity;
 
 import lombok.Getter;
+import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
 
 @Entity
-@Table(name = "doctor_reservation_tb")
+@Table(name = "DOCTOR_RESERVATION_TB")
 @Getter
 public class DoctorReservation {
     @Id
-    @GeneratedValue
-    @Column(name = "id")
+    @Column(name = "ID")
+    @GeneratedValue(generator = "uuid2")
+    @GenericGenerator(name = "uuid2", strategy = "uuid2")
     private String id;
 
-    @Column(name = "reservation_ts")
+    @Column(name = "RESERVATION_TS")
     private LocalDateTime reservationTS;
 
-    @JoinColumn(name = "state_cd")
-    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "STATE_CD")
+    @ManyToOne
     private Code state;
 
-    @JoinColumn(name = "category_cd")
-    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "CATEGORY_CD")
+    @ManyToOne
     private Code category;
 
-    @JoinColumn(name = "pet_id")
-    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "PET_ID")
+    @ManyToOne
     private Pet pet;
 
-    @JoinColumn(name = "hospital_id")
-    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "HOSPITAL_ID")
+    @ManyToOne
     private Hospital hospital;
 
-    @JoinColumn(name = "doctor_id")
-    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "DOCTOR_ID")
+    @ManyToOne
     private Doctor doctor;
 
-    @Column(name = "remark")
+    @Column(name = "REMARK")
     private String remark;
 
 }

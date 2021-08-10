@@ -5,21 +5,21 @@ import lombok.Getter;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "doctor_schedule_tb")
+@Table(name = "DOCTOR_SCHEDULE_TB")
 @Getter
 public class DoctorSchedule {
     @EmbeddedId
     private DoctorScheduleId id;
 
-    @JoinColumn(name = "pet_id")
-    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "PET_ID")
+    @ManyToOne
     private Pet pet;
 
-    @JoinColumn(name = "reservation_id")
-    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "RESERVATION_ID")
+    @ManyToOne
     private DoctorReservation doctorReservation;
 
-    @Column(name = "remark")
+    @Column(name = "REMARK")
     private String remark;
 
 }

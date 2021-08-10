@@ -1,66 +1,68 @@
 package com.petclinic.backend.domain.entity;
 import lombok.Getter;
+import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
 
 @Entity
-@Table(name = "medical_history_tb")
+@Table(name = "MEDICAL_HISTORY_TB")
 @Getter
 public class MedicalHistory {
     @Id
-    @GeneratedValue
-    @Column(name = "id")
+    @Column(name = "ID")
+    @GeneratedValue(generator = "uuid2")
+    @GenericGenerator(name = "uuid2", strategy = "uuid2")
     private String id;
 
-    @JoinColumn(name = "doctor_id")
-    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "DOCTOR_ID")
+    @ManyToOne
     private Doctor doctor;
 
-    @JoinColumn(name = "pet_id")
-    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "PET_ID")
+    @ManyToOne
     private Pet pet;
 
-    @JoinColumn(name = "hospital_id")
-    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "HOSPITAL_ID")
+    @ManyToOne
     private Hospital hospital;
 
-    @Column(name = "history_ts")
+    @Column(name = "HISTORY_TS")
     private LocalDateTime historyTS;
 
-    @JoinColumn(name = "type_cd")
-    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "TYPE_CD")
+    @ManyToOne
     private Type type;
 
-    @JoinColumn(name = "code_cd")
-    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "CODE_CD")
+    @ManyToOne
     private Code code;
 
-    @Column(name = "description")
+    @Column(name = "DESCRIPTION")
     private String description;
 
-    @Column(name = "qty")
+    @Column(name = "QTY")
     private String qty;
 
-    @Column(name = "amount")
+    @Column(name = "AMOUNT")
     private String amount;
 
-    @Column(name = "by")
+    @Column(name = "BY")
     private String by;
 
-    @Column(name = "photo")
+    @Column(name = "PHOTO")
     private String photo;
 
-    @Column(name = "xls")
+    @Column(name = "XLS")
     private String xls;
 
-    @Column(name = "variance")
+    @Column(name = "VARIANCE")
     private String variance;
 
-    @Column(name = "journal")
+    @Column(name = "JOURNAL")
     private String journal;
 
-    @Column(name = "zip")
+    @Column(name = "ZIP")
     private String zip;
 
 }

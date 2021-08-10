@@ -8,11 +8,11 @@ import java.time.LocalDateTime;
 @Embeddable
 @Getter
 public class DoctorScheduleId {
-    @Column(name = "schedule_ts")
+    @Column(name = "SCHEDULE_TS")
     private LocalDateTime scheduleTS;
 
-    @JoinColumn(name = "doctor_id")
-    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "DOCTOR_ID")
+    @ManyToOne
     private Doctor doctor;
 
     public DoctorScheduleId(LocalDateTime scheduleTS, Doctor doctor){

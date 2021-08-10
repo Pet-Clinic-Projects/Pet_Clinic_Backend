@@ -1,29 +1,31 @@
 package com.petclinic.backend.domain.entity;
 
 import lombok.Getter;
+import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
 
 @Entity
-@Table(name = "infra_tb")
+@Table(name = "INFRA_TB")
 @Getter
 public class Infra {
     @Id
-    @GeneratedValue
-    @Column(name = "id")
+    @Column(name = "ID")
+    @GeneratedValue(generator = "uuid2")
+    @GenericGenerator(name = "uuid2", strategy = "uuid2")
     private String id;
 
-    @JoinColumn(name = "hospital_id")
-    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "HOSPITAL_ID")
+    @ManyToOne
     private Hospital hospital;
 
-    @Column(name = "name")
+    @Column(name = "NAME")
     private String name;
 
-    @Column(name = "description")
+    @Column(name = "DESCRIPTION")
     private String description;
 
-    @Column(name = "max_weight")
+    @Column(name = "MAX_WEIGHT")
     private int maxWeight;
 
 }

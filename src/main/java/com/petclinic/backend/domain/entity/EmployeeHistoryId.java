@@ -7,14 +7,14 @@ import java.io.Serializable;
 
 @Embeddable
 @Getter
-public class EmployeeHisId implements Serializable {
-    @Column(name = "VERSION")
+public class EmployeeHistoryId implements Serializable {
+    @Column(name = "version")
     private Long version;
 
-    @Column(name = "ID", length = 100)
+    @Column(name = "id")
     private String employee;
 
-    public EmployeeHisId(Long version, String employee) {
+    public EmployeeHistoryId(Long version, String employee) {
         this.version = version;
         this.employee = employee;
     }

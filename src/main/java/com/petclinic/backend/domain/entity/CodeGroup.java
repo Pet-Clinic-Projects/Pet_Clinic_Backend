@@ -9,17 +9,16 @@ import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 
 @Entity
-@Table(name = "code_group_tb")
+@Table(name = "CODE_GROUP_TB")
 @Getter
 public class CodeGroup {
     @Id
-    @Column(name = "ID", length = 100)
+    @Column(name = "id")
     private String id;
 
-    @Column(name = "GROUP_NAME", length = 1000)
-    @NotNull
+    @Column(name = "group_name", length = 1000)
     private String name;
 
-    @Column(name = "DESCRIPTION", length = 1000)
+    @Column(name = "description", length = 1000)
     private String description;
 }

@@ -7,31 +7,30 @@ import javax.validation.constraints.NotNull;
 import java.time.LocalDateTime;
 
 @Entity
-@Table(name = "employee_his_tb")
+@Table(name = "EMPLOYEE_HISTORY_TB")
 @Getter
-public class EmployeeHis {
+public class EmployeeHistory {
     @EmbeddedId
-    private EmployeeHisId id;
+    private EmployeeHistoryId id;
 
     @Column(name = "name", length = 1000)
     private String name;
 
-    @Column(name = "HOSPITAL_ID", length = 100)
+    @Column(name = "hospital_id", length = 100)
     private String hospital;
 
-    @Column(name = "TYPE_CD", length = 100)
-    @NotNull
+    @Column(name = "type_cd", length = 100)
     private String type;
 
-    @Column(name = "PASSWORD", length = 1000)
+    @Column(name = "password", length = 1000)
     private String password;
 
-    @Column(name = "PHONE", length = 1000)
+    @Column(name = "phone", length = 1000)
     private String phone;
 
-    @Column(name = "EMAIL", length = 1000)
+    @Column(name = "email", length = 1000)
     private String email;
 
-    @Column(name = "MODIFY_TS")
+    @Column(name = "modify_ts")
     private LocalDateTime modify;
 }

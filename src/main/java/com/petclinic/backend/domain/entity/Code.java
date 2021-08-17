@@ -6,23 +6,21 @@ import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 
 @Entity
-@Table(name = "code_tb")
+@Table(name = "CODE_TB")
 @Getter
 public class Code {
-    @Column(name = "ID", length = 100)
+    @Column(name = "id")
     @Id
     private String id;
 
-    @JoinColumn(name = "GROUP_ID")
-    @ManyToOne(fetch = FetchType.LAZY)
-    @NotNull
+    @JoinColumn(name = "group_id")
+    @ManyToOne
     private CodeGroup group;
 
-    @Column(name = "CODE_NAME", length = 1000)
-    @NotNull
+    @Column(name = "code_name", length = 1000)
     private String name;
 
-    @Column(name = "DESCRIPTION", length = 1000)
+    @Column(name = "description", length = 1000)
     private String description;
 
 }

@@ -3,10 +3,10 @@ package com.petclinic.backend.domain.entity;
 import javax.persistence.*;
 
 @Embeddable
-public class HospitalHisId {
-    @Column(name = "VERSION")
+public class HospitalHistoryId {
+    @Column(name = "version")
     private Long version;
 
-    @Column(name = "ID", length = 100)
+    @Column(name = "id")
     private String hospital;
 }

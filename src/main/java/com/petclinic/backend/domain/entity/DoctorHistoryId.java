@@ -5,12 +5,10 @@ import javax.validation.constraints.NotNull;
 import java.io.Serializable;
 
 @Embeddable
-public class DoctorHisId implements Serializable {
-    @Column(name = "VERSION")
-    @NotNull
+public class DoctorHistoryId implements Serializable {
+    @Column(name = "version")
     private Long version;
 
-    @Column(name = "ID", length = 100)
-    @NotNull
+    @Column(name = "id")
     private String id;
 }

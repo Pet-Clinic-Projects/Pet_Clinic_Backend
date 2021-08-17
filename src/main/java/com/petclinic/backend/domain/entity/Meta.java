@@ -7,23 +7,22 @@ import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 
 @Entity
-@Table(name = "meta_tb")
+@Table(name = "META_TB")
 @Getter
 public class Meta {
     @Id
-    @Column(name = "ID", length = 100)
+    @Column(name = "id")
     @GeneratedValue(generator = "uuid2")
     @GenericGenerator(name = "uudi2", strategy = "uuid2")
     private String id;
 
-    @Column(name = "NAME", length = 1000)
-    @NotNull
+    @Column(name = "name", length = 1000)
     private String name;
 
-    @Column(name = "DESCRIPTION", length = 1000)
+    @Column(name = "description", length = 1000)
     private String description;
 
-    @JoinColumn(name = "PARENT_ID")
-    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "parent_id")
+    @ManyToOne
     private Meta parent;
 }

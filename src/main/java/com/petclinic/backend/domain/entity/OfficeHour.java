@@ -11,17 +11,15 @@ import javax.validation.constraints.NotNull;
 import java.time.LocalDateTime;
 
 @Entity
-@Table(name = "office_hour_tb")
+@Table(name = "OFFICE_HOUR_TB")
 @Getter
 public class OfficeHour {
     @EmbeddedId
     private OfficeHourId id;
 
-    @Column(name = "OPEN_HOUR")
-    @NotNull
+    @Column(name = "open_hour")
     private LocalDateTime open;
 
-    @Column(name = "CLOSE_HOUR")
-    @NotNull
+    @Column(name = "close_hour")
     private LocalDateTime close;
 }

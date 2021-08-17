@@ -8,43 +8,41 @@ import javax.validation.constraints.NotNull;
 import java.time.LocalDateTime;
 
 @Entity
-@Table(name = "employee_tb")
+@Table(name = "EMPLOYEE_TB")
 @Getter
 public class Employee {
     @Id
-    @Column(name = "ID")
+    @Column(name = "id")
     @GeneratedValue(generator = "uuid2")
     @GenericGenerator(name = "uuid2", strategy = "uuid2")
     private String id;
 
-    @Column(name = "NAME", length = 1000)
-    @NotNull
+    @Column(name = "name", length = 1000)
     private String name;
 
-    @JoinColumn(name = "HOSPITAL_ID")
-    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "hospital_id")
+    @ManyToOne
     private Hospital hospital;
 
-    @JoinColumn(name = "TYPE_CD")
-    @ManyToOne(fetch = FetchType.LAZY)
-    @NotNull
+    @JoinColumn(name = "type_cd")
+    @ManyToOne
     private Code type;
 
-    @Column(name = "WEB_ID", length = 1000)
+    @Column(name = "web_id", length = 1000)
     private String web;
 
-    @Column(name = "PASSWORD", length = 1000)
+    @Column(name = "password", length = 1000)
     private String password;
 
-    @Column(name = "PHONE", length = 1000)
+    @Column(name = "phone", length = 1000)
     private String phone;
 
-    @Column(name = "EMAIL", length = 1000)
+    @Column(name = "email", length = 1000)
     private String email;
 
-    @Column(name = "START_TS")
+    @Column(name = "start_ts")
     private LocalDateTime start;
 
-    @Column(name = "END_TS")
+    @Column(name = "end_ts")
     private LocalDateTime end;
 }

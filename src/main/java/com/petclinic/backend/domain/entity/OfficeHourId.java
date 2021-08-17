@@ -5,10 +5,10 @@ import java.io.Serializable;
 
 @Embeddable
 public class OfficeHourId implements Serializable {
-    @Column(name = "DAY")
+    @Column(name = "day")
     private String day;
 
-    @JoinColumn(name = "HOSPITAL_ID")
-    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "hospital_id")
+    @ManyToOne
     private Hospital hospital;
 }
